@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>League of Legends: Where Legends Are Born</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700;800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      /* Simple keyframe for particle animation */
+      @keyframes float {
+        0% { transform: translateY(0px) translateX(0px); opacity: 1; }
+        100% { transform: translateY(-1000px) translateX(20px); opacity: 0; }
+      }
+      .particle {
+        animation: float 20s linear infinite;
+      }
+      /* Animation for Hero section text on load */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 1.5s ease-out forwards;
+      }
+      /* Animations for sections on scroll */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1), transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1);
+        transition-delay: 0.1s;
+      }
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-blue-dark': '#0a1428',
+              'brand-blue-luminous': '#0ac8b9',
+              'brand-gold': '#c89b3c',
+              'brand-off-white': '#f0f0f0',
+              'brand-gray-light': '#a0a0a0',
+            },
+            fontFamily: {
+              'garamond': ['EB Garamond', 'serif'],
+              'roboto': ['Roboto', 'sans-serif'],
+            },
+            boxShadow: {
+              'glow-gold': '0 0 15px rgba(200, 155, 60, 0.7)',
+              'glow-blue': '0 0 15px rgba(10, 200, 185, 0.7)',
+              'glow-red': '0 0 20px rgba(239, 68, 68, 0.9)',
+            }
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/"
+  }
+}
+</script>
+</head>
+  <body class="bg-brand-blue-dark text-brand-gray-light font-roboto antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
